@@ -13,7 +13,7 @@
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
 Imports System.IO
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 Imports System.Text.RegularExpressions
 Imports Krypton.Toolkit
 
@@ -47,10 +47,7 @@ Public Class EditDialogForm
         Next
         ForeColor = frColor
         BackColor = bgColor
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     Private Sub LanguageChange() Implements ILocalizable.LanguageChange
         If _artwork.ID = 0 Then

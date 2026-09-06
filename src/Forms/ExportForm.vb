@@ -14,7 +14,7 @@
 ' limitations under the License.
 Imports System.IO
 Imports System.IO.Compression
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 Imports Ookii.Dialogs.WinForms
 Public Class ExportForm
     Implements IThemeChangeable, ILocalizable
@@ -73,10 +73,7 @@ Public Class ExportForm
         Next
         ForeColor = frColor
         BackColor = bgColor
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     Private Sub LanguageChange() Implements ILocalizable.LanguageChange
 

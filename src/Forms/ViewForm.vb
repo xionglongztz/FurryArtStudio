@@ -21,6 +21,7 @@ Imports System.Text
 Imports System.Text.RegularExpressions
 Imports System.Threading
 Imports PawLab.Chromis
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 Imports Ookii.Dialogs.WinForms
 Public Class ViewForm
     Implements IThemeChangeable, ILocalizable
@@ -123,10 +124,7 @@ Public Class ViewForm
             Icon = CreateRoundedRectangleIcon(False, My.Resources.Icons.FormImageLight)
             InitializeMenuImages()
         End If
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     ''' <summary>
     ''' 语言
@@ -588,7 +586,7 @@ Public Class ViewForm
                         pixels.Add(RGBColor.FromRGB(color.R, color.G, color.B))
                     Next
                     Dim extractColor = ColorExtractor.Extract(pixels, 8, ExtractType.Octree)(0)
-                    SetTitleBarColor(Handle, extractColor.Color.R, extractColor.Color.G, extractColor.Color.B)
+                    PawTheme.SetTitleBarColor(Handle, extractColor.Color.R, extractColor.Color.G, extractColor.Color.B)
                 End If
             End If
         Catch ex As OperationCanceledException
@@ -596,9 +594,9 @@ Public Class ViewForm
         Catch ex As Exception
             If useThemeColor Then '当出现错误时回退到默认配色
                 If IsDarkMode() Then
-                    SetTitleBarColor(Handle, Color.Black)
+                    PawTheme.SetTitleBarColor(Handle, 0, 0, 0)
                 Else
-                    SetTitleBarColor(Handle, Color.White)
+                    PawTheme.SetTitleBarColor(Handle, 255, 255, 255)
                 End If
             End If
             ShowErrorDialog(ex, My.Resources.Msg_ImageLoadFailed)

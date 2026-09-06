@@ -101,6 +101,9 @@
     <Reference Include="PawLab.Logger, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\PawLab.Logger.1.0.4\lib\net472\PawLab.Logger.dll</HintPath>
     </Reference>
+    <Reference Include="PawLab.WindowsTheme, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PawLab.WindowsTheme.1.0.1\lib\net472\PawLab.WindowsTheme.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>

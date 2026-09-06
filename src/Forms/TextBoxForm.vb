@@ -12,7 +12,7 @@
 ' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 
 Public Class TextBoxForm
     Implements IThemeChangeable
@@ -37,9 +37,6 @@ Public Class TextBoxForm
             TxtBox.ForeColor = FrColorLight
             Icon = CreateRoundedRectangleIcon(False, My.Resources.Icons.FormFileLight)
         End If
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
 End Class

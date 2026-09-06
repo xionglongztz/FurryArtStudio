@@ -14,7 +14,7 @@
 ' limitations under the License.
 Imports System.Drawing.Imaging
 Imports System.Drawing.Printing
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 Public Class PrintForm
     Implements IThemeChangeable, ILocalizable
     '打印设置变量
@@ -192,10 +192,7 @@ Public Class PrintForm
         Next
         ForeColor = frColor
         BackColor = bgColor
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     Private Sub BtnPrinterSetup_Click(sender As Object, e As EventArgs) Handles BtnPrinterSetup.Click
         Dim isShiftPressed As Boolean = My.Computer.Keyboard.ShiftKeyDown

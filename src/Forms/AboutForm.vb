@@ -12,7 +12,7 @@
 ' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 
 Public Class AboutForm
     Implements IThemeChangeable, ILocalizable
@@ -70,10 +70,7 @@ Public Class AboutForm
             BackColor = BgColorLight
             TxtBox.ForeColor = FrColorLight
         End If
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     Private Sub LanguageChange() Implements ILocalizable.LanguageChange
         Text = My.Resources.About_Title

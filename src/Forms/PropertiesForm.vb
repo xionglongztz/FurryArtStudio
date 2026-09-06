@@ -14,7 +14,7 @@
 ' limitations under the License.
 Imports System.ComponentModel
 Imports System.Globalization
-Imports System.Runtime.InteropServices
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 Imports System.Threading
 Imports Microsoft.Win32
 
@@ -62,10 +62,7 @@ Public Class PropertiesForm
         Next
         ForeColor = frColor
         BackColor = bgColor
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     Private Sub InitSettings()
         Setting = AppSettings.Load()

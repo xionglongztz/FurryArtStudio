@@ -25,6 +25,7 @@ Imports System.Threading
 Imports Microsoft.Win32
 Imports Ookii.Dialogs.WinForms
 Imports PawLab.Logger
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 
 ''' <summary>
 ''' 基本函数
@@ -430,32 +431,6 @@ Module BasicFcn
         Next
     End Sub
     ''' <summary>
-    ''' 将 RGB 转换成 COLORREF 格式
-    ''' </summary>
-    Public Function RGBToCOLORREF(ByVal r As Byte, ByVal g As Byte, ByVal b As Byte) As Integer
-        '0x00BBGGRR
-        Return CInt(b) << 16 Or CInt(g) << 8 Or CInt(r)
-    End Function
-    Public Function RGBToCOLORREF(color As Color) As Integer
-        Return RGBToCOLORREF(color.R, color.G, color.B)
-    End Function
-    Public Sub SetTitleBarColor(ByVal hwnd As IntPtr, ByVal r As Byte, ByVal g As Byte, ByVal b As Byte)
-        Try
-            '设置标题栏与边框背景色
-            Dim colorRef As Integer = RGBToCOLORREF(r, g, b)
-            DwmSetWindowAttribute(hwnd, DwmWindowAttribute.CaptionColor, colorRef, Marshal.SizeOf(Of Integer)())
-            DwmSetWindowAttribute(hwnd, DwmWindowAttribute.BorderColor, colorRef, Marshal.SizeOf(Of Integer)())
-            '根据背景亮度决定文字颜色
-            Dim textColor As Integer = RGBToCOLORREF(GetForeColor(Color.FromArgb(r, g, b)))
-            DwmSetWindowAttribute(hwnd, DwmWindowAttribute.TextColor, textColor, Marshal.SizeOf(Of Integer)())
-        Catch ex As Exception
-            '忽略错误
-        End Try
-    End Sub
-    Public Sub SetTitleBarColor(ByVal hwnd As IntPtr, ByVal color As Color)
-        SetTitleBarColor(hwnd, color.R, color.G, color.B)
-    End Sub
-    ''' <summary>
     ''' 定义一个修改系统主题变更的接口
     ''' </summary>
     Public Interface IThemeChangeable
@@ -592,9 +567,7 @@ Module BasicFcn
             Case AppSettings.ThemeMode.Dark
                 Return True
             Case AppSettings.ThemeMode.FollowSystem
-                Using regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", True)
-                    Return regKey.GetValue("AppsUseLightTheme", "1") = 0
-                End Using
+                Return PawTheme.IsAppDarkMode()
             Case Else
                 Return False
         End Select

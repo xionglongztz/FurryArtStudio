@@ -23,6 +23,7 @@ Imports System.Text
 Imports Krypton.Toolkit
 Imports Ookii.Dialogs.WinForms
 Imports SysThreading = System.Threading
+Imports PawTheme = PawLab.WindowsTheme.ThemeService
 
 Public Class MainForm
     Implements IThemeChangeable, ILocalizable
@@ -97,7 +98,8 @@ Public Class MainForm
         MenuInit() '初始化菜单
         SystemThemeChange() '设置主题
         If settings.Appearance.ShowThemeColor Then '修改标题栏颜色(win11生效)
-            SetTitleBarColor(Handle, Color.FromArgb(settings.Appearance.ThemeColorArgb))
+            Dim titleColor As Color = Color.FromArgb(settings.Appearance.ThemeColorArgb)
+            PawTheme.SetTitleBarColor(Handle, titleColor.R, titleColor.G, titleColor.B)
         End If
         Icon = Icon.FromHandle(My.Resources.Icons.FurryArtStudio.GetHicon) '设置图标
         ImageGalleryMain.SelectionAccentColor = Color.FromArgb(settings.Appearance.SelectionAccentColorArgb)
@@ -421,10 +423,7 @@ Public Class MainForm
         Next
         ForeColor = frColor
         BackColor = bgColor
-        'WinAPI
-        DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
-        SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
-        FlushMenuThemes()
+        PawTheme.SetWindowTheme(Handle, IsDarkMode) 'PawLab.WindowsTheme
     End Sub
     ''' <summary>
     ''' 设置缩放图标

@@ -163,7 +163,6 @@ Partial Class MainForm
         Me.TSBtnPrevPage = New System.Windows.Forms.ToolStripButton()
         Me.TSBtnNextPage = New System.Windows.Forms.ToolStripButton()
         Me.ArtworkListSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.LblNotes = New System.Windows.Forms.Label()
         Me.LblDeltas = New System.Windows.Forms.Label()
         Me.LblTags = New System.Windows.Forms.Label()
@@ -172,6 +171,7 @@ Partial Class MainForm
         Me.LblTitle = New System.Windows.Forms.Label()
         Me.PiChkThumb = New System.Windows.Forms.PictureBox()
         Me.NotifyIco = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.MnuStrip.SuspendLayout()
         Me.StaStrip.SuspendLayout()
         Me.ConMenu.SuspendLayout()
@@ -670,14 +670,14 @@ Partial Class MainForm
         'WebHookToolStripMenuItem
         '
         Me.WebHookToolStripMenuItem.Name = "WebHookToolStripMenuItem"
-        Me.WebHookToolStripMenuItem.Size = New System.Drawing.Size(178, 26)
+        Me.WebHookToolStripMenuItem.Size = New System.Drawing.Size(224, 26)
         Me.WebHookToolStripMenuItem.Text = "&WebHook..."
         '
         'MnuPlugin
         '
         Me.MnuPlugin.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.打开插件目录PToolStripMenuItem, Me.ToolStripSeparator19})
         Me.MnuPlugin.Name = "MnuPlugin"
-        Me.MnuPlugin.Size = New System.Drawing.Size(178, 26)
+        Me.MnuPlugin.Size = New System.Drawing.Size(224, 26)
         Me.MnuPlugin.Text = "插件(&P)"
         '
         '打开插件目录PToolStripMenuItem
@@ -1199,22 +1199,6 @@ Partial Class MainForm
         Me.ArtworkListSplitContainer.SplitterDistance = 730
         Me.ArtworkListSplitContainer.TabIndex = 3
         '
-        'ImageGalleryMain
-        '
-        Me.ImageGalleryMain.AutoScroll = True
-        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
-        Me.ImageGalleryMain.BadgeColor = System.Drawing.Color.Red
-        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
-        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 0)
-        Me.ImageGalleryMain.MaxItemSize = 240
-        Me.ImageGalleryMain.MinItemSize = 120
-        Me.ImageGalleryMain.Name = "ImageGalleryMain"
-        Me.ImageGalleryMain.PageSize = 100
-        Me.ImageGalleryMain.SelectionAccentColor = System.Drawing.Color.Blue
-        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 509)
-        Me.ImageGalleryMain.TabIndex = 3
-        '
         'LblNotes
         '
         Me.LblNotes.Dock = System.Windows.Forms.DockStyle.Top
@@ -1289,6 +1273,22 @@ Partial Class MainForm
         '
         Me.NotifyIco.Text = "FurryArtStudio"
         Me.NotifyIco.Visible = True
+        '
+        'ImageGalleryMain
+        '
+        Me.ImageGalleryMain.AutoScroll = True
+        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
+        Me.ImageGalleryMain.BadgeColor = System.Drawing.Color.Red
+        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
+        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 0)
+        Me.ImageGalleryMain.MaxItemSize = 240
+        Me.ImageGalleryMain.MinItemSize = 120
+        Me.ImageGalleryMain.Name = "ImageGalleryMain"
+        Me.ImageGalleryMain.PageSize = 100
+        Me.ImageGalleryMain.SelectionAccentColor = System.Drawing.Color.Blue
+        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 509)
+        Me.ImageGalleryMain.TabIndex = 3
         '
         'MainForm
         '
