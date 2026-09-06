@@ -239,7 +239,7 @@ Public Class EditDialogForm
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Using openFileDialog As New OpenFileDialog()
             openFileDialog.Filter = My.Resources.Edit_ImageFilter
-            openFileDialog.Title = "选择要添加的图片"
+            openFileDialog.Title = My.Resources.Edit_AddImg
             openFileDialog.Multiselect = True
             If openFileDialog.ShowDialog() = DialogResult.OK Then
                 Try
@@ -267,22 +267,22 @@ Public Class EditDialogForm
     End Sub
     Private Sub BtnDel_Click(sender As Object, e As EventArgs) Handles BtnDel.Click
         If LstBox.SelectedItem Is Nothing Then
-            MessageBox.Show("请先选择要删除的文件", My.Resources.FurryArtStudio,
+            MessageBox.Show(My.Resources.Edit_SelectDel, My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
         Dim selectedItem = CType(LstBox.SelectedItem, FileItemInfo)
-        Dim result = MessageBox.Show($"确定要删除文件 '{selectedItem.FileName}' 吗？",
+        Dim result = MessageBox.Show(String.Format(My.Resources.Edit_DelConfirm, selectedItem.FileName),
                                     My.Resources.FurryArtStudio, MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
             If _transaction.DeleteFile(selectedItem.FileName) Then
                 RefreshFileList() '更新文件列表
-                MessageBox.Show("文件已标记为删除", My.Resources.FurryArtStudio,
+                MessageBox.Show(My.Resources.Edit_MarkDel, My.Resources.FurryArtStudio,
                               MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("删除失败,文件不存在", My.Resources.FurryArtStudio,
+                MessageBox.Show(My.Resources.Edit_DelFailed, My.Resources.FurryArtStudio,
                               MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
@@ -431,19 +431,19 @@ Public Class EditDialogForm
             End If
             Return True
         Catch ex As Exception
-            MessageBox.Show($"创建稿件文件夹时出错：{ex.Message}", My.Resources.FurryArtStudio,
+            MessageBox.Show($"{My.Resources.Edit_CreateFailed} {ex.Message}", My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End Try
     End Function
     Private Sub BtnModify_Click(sender As Object, e As EventArgs) Handles BtnModify.Click
         If TxtboxTitle.Text = "" Then
-            _artwork.Title = "无题"
+            _artwork.Title = My.Resources.Edit_NoTitle
         Else
             _artwork.Title = TxtboxTitle.Text
         End If '标题
         If TxtboxAuthor.Text = "" Then
-            _artwork.Author = "无名"
+            _artwork.Author = My.Resources.Edit_NoAuthor
         Else
             _artwork.Author = TxtboxAuthor.Text
         End If '作者
@@ -462,14 +462,14 @@ Public Class EditDialogForm
         If TxtboxCharacters.Text = "" Then createTime = DateTime.Parse("1970-01-01 00:00:00")
         '验证创建时间格式
         If Not DateTime.TryParse(CleanInvisibleCharacters(TxtboxCreateTime.Text), createTime) Then
-            MessageBox.Show("创作时间格式不正确！请使用 yyyy-MM-dd HH:mm:ss 格式", My.Resources.FurryArtStudio,
+            MessageBox.Show(My.Resources.Edit_TimeInvalid, My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return
         End If
         '验证创建时间不能晚于当前时间
         If createTime > DateTime.Now Then
-            MessageBox.Show("创作时间不能晚于当前时间！", My.Resources.FurryArtStudio,
+            MessageBox.Show(My.Resources.Edit_TimeOverflow, My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return

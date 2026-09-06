@@ -1132,9 +1132,6 @@ Public Class MainForm
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub
     Private Sub MnuLibStatistics_Click(sender As Object, e As EventArgs) Handles MnuLibStatistics.Click
-        ShowLibStatistics()
-    End Sub
-    Private Sub ShowLibStatistics()
         Dim sb As New StringBuilder
         Dim library = _libraryManager.GetCurrentLibrary
         sb.Append(String.Format(My.Resources.Main_StrPropLib, library.LibraryName) & vbCrLf)

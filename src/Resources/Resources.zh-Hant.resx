@@ -900,4 +900,34 @@
   <data name="Edit_ImageFilter" xml:space="preserve">
     <value>圖片檔案(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案(*.*)|*.*</value>
   </data>
+  <data name="Edit_NoTitle" xml:space="preserve">
+    <value>无標題</value>
+  </data>
+  <data name="Edit_NoAuthor" xml:space="preserve">
+    <value>无作者</value>
+  </data>
+  <data name="Edit_AddImg" xml:space="preserve">
+    <value>選擇要新增的圖片</value>
+  </data>
+  <data name="Edit_SelectDel" xml:space="preserve">
+    <value>請先選擇要刪除的檔案</value>
+  </data>
+  <data name="Edit_DelConfirm" xml:space="preserve">
+    <value>確定要刪除檔案「{0}」嗎？</value>
+  </data>
+  <data name="Edit_MarkDel" xml:space="preserve">
+    <value>檔案已標記為刪除</value>
+  </data>
+  <data name="Edit_DelFailed" xml:space="preserve">
+    <value>刪除失敗</value>
+  </data>
+  <data name="Edit_CreateFailed" xml:space="preserve">
+    <value>建立資料夾時發生錯誤</value>
+  </data>
+  <data name="Edit_TimeInvalid" xml:space="preserve">
+    <value>創作時間格式不正確！請使用 yyyy-MM-dd HH:mm:ss 格式</value>
+  </data>
+  <data name="Edit_TimeOverflow" xml:space="preserve">
+    <value>創作時間不能晚於目前時間！</value>
+  </data>
 </root>

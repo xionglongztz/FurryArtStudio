@@ -900,4 +900,34 @@
   <data name="Edit_ImageFilter" xml:space="preserve">
     <value>Image files(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All files(*.*)|*.*</value>
   </data>
+  <data name="Edit_NoTitle" xml:space="preserve">
+    <value>No Title</value>
+  </data>
+  <data name="Edit_NoAuthor" xml:space="preserve">
+    <value>No Author</value>
+  </data>
+  <data name="Edit_AddImg" xml:space="preserve">
+    <value>Select the image(s) to add</value>
+  </data>
+  <data name="Edit_SelectDel" xml:space="preserve">
+    <value>Please select the file to delete first</value>
+  </data>
+  <data name="Edit_DelConfirm" xml:space="preserve">
+    <value>Are you sure you want to delete the file '{0}'?</value>
+  </data>
+  <data name="Edit_MarkDel" xml:space="preserve">
+    <value>The file has been marked for deletion</value>
+  </data>
+  <data name="Edit_DelFailed" xml:space="preserve">
+    <value>Deletion failed</value>
+  </data>
+  <data name="Edit_CreateFailed" xml:space="preserve">
+    <value>Error creating folder:</value>
+  </data>
+  <data name="Edit_TimeInvalid" xml:space="preserve">
+    <value>Invalid create time format! Please use the format yyyy-MM-dd HH:mm:ss.</value>
+  </data>
+  <data name="Edit_TimeOverflow" xml:space="preserve">
+    <value>The create time cannot be later than the current time.</value>
+  </data>
 </root>

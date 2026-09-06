@@ -133,6 +133,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 Select the image(s) to add 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_AddImg() As String
+            Get
+                Return ResourceManager.GetString("Edit_AddImg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 &amp;Add... 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Edit_BtnAddItem() As String
@@ -183,6 +192,33 @@ Namespace My.Resources
         Friend ReadOnly Property Edit_BtnSetPreview() As String
             Get
                 Return ResourceManager.GetString("Edit_BtnSetPreview", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Error creating folder: 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_CreateFailed() As String
+            Get
+                Return ResourceManager.GetString("Edit_CreateFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Are you sure you want to delete the file &apos;{0}&apos;? 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_DelConfirm() As String
+            Get
+                Return ResourceManager.GetString("Edit_DelConfirm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Deletion failed 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_DelFailed() As String
+            Get
+                Return ResourceManager.GetString("Edit_DelFailed", resourceCulture)
             End Get
         End Property
         
@@ -277,11 +313,65 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 The file has been marked for deletion 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_MarkDel() As String
+            Get
+                Return ResourceManager.GetString("Edit_MarkDel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 New Manuscript 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Edit_NewTitle() As String
             Get
                 Return ResourceManager.GetString("Edit_NewTitle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 No Author 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_NoAuthor() As String
+            Get
+                Return ResourceManager.GetString("Edit_NoAuthor", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 No Title 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_NoTitle() As String
+            Get
+                Return ResourceManager.GetString("Edit_NoTitle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Please select the file to delete first 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_SelectDel() As String
+            Get
+                Return ResourceManager.GetString("Edit_SelectDel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Invalid create time format! Please use the format yyyy-MM-dd HH:mm:ss. 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_TimeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Edit_TimeInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 The create time cannot be later than the current time. 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_TimeOverflow() As String
+            Get
+                Return ResourceManager.GetString("Edit_TimeOverflow", resourceCulture)
             End Get
         End Property
         
