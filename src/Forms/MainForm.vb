@@ -121,7 +121,7 @@ Public Class MainForm
             Await ShowHitokoto()
         End If
         NotifyIco.Icon = Me.Icon
-        NotifyIco.Text = "FurryArtStudio"
+        NotifyIco.Text = My.Resources.FurryArtStudio
         NotifyIco.Visible = False
         StatusLabel.Text = My.Resources.Stat_Ready '就绪
         MnuExtension.Visible = False
@@ -554,7 +554,7 @@ Public Class MainForm
     ''' 初始化菜单项
     ''' </summary>
     Private Sub MenuInit()
-        Text = "FurryArtStudio"
+        Text = My.Resources.FurryArtStudio
         MnuLibOpenFolder.Enabled = False
         MnuLibCopy.Enabled = False
         MnuLibCopyPath.Enabled = False
@@ -661,7 +661,7 @@ Public Class MainForm
     ''' 载入数据并设置图片墙
     ''' </summary>
     Private Sub LoadArtworks()
-        Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - FurryArtStudio"
+        Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - {My.Resources.FurryArtStudio}"
         StatusLabel.Text = My.Resources.Stat_Loading
         ArtworkListSplitContainer.UseWaitCursor = True
         '设置菜单
@@ -764,7 +764,7 @@ Public Class MainForm
             RefreshLib()
             TSSep1.Visible = False
             SearchStatusLabel.Visible = False
-            If _libraryManager.GetCurrentLibrary IsNot Nothing Then Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - FurryArtStudio"
+            If _libraryManager.GetCurrentLibrary IsNot Nothing Then Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - {My.Resources.FurryArtStudio}"
         Else
             ImageGalleryMain.ClearImages()
             Dim resultArtwork As List(Of Artwork) = _libraryManager.GetCurrentLibrary.SearchArtworks(MnuSearchTxtbox.Text)
@@ -777,7 +777,7 @@ Public Class MainForm
             MnuPageDown.Enabled = page > 1
             PageStatusLabel.Text = String.Format(My.Resources.Main_LblPage1, page) '在初始化阶段暂时获得不到准确的页码
             SelectStatusLabel.Text = String.Format(My.Resources.Main_LblMs, _artworkCount) '稿件总数量
-            Text = String.Format(My.Resources.Main_LblMs, ImageGalleryMain.TotalImageCount) & " - " & _libraryManager.GetCurrentLibrary.LibraryName & " - FurryArtStudio"
+            Text = String.Format(My.Resources.Main_LblMs, ImageGalleryMain.TotalImageCount) & " - " & _libraryManager.GetCurrentLibrary.LibraryName & $" - {My.Resources.FurryArtStudio}"
         End If
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub

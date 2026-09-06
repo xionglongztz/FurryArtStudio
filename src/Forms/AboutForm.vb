@@ -95,12 +95,12 @@ Public Class AboutForm
     End Sub
     '隐私政策
     Private Sub LlblPrivacy_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LlblPrivacy.LinkClicked
-        Dim txt As New TextBoxForm(My.Resources.Licenses.PrivacyText, "隐私政策")
+        Dim txt As New TextBoxForm(My.Resources.Licenses.PrivacyText, My.Resources.About_LinkPrivacy)
         txt.Show()
     End Sub
     '用户协议
     Private Sub LlblUserAgreement_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LlblUserAgreement.LinkClicked
-        Dim txt As New TextBoxForm(My.Resources.Licenses.TermsText, "用户协议")
+        Dim txt As New TextBoxForm(My.Resources.Licenses.TermsText, My.Resources.About_LinkUserAgreement)
         txt.Show()
     End Sub
     '官网

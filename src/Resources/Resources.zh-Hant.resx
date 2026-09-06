@@ -897,4 +897,7 @@
   <data name="Stat_Importing" xml:space="preserve">
     <value>正在匯入……</value>
   </data>
+  <data name="Edit_ImageFilter" xml:space="preserve">
+    <value>圖片檔案(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有檔案(*.*)|*.*</value>
+  </data>
 </root>

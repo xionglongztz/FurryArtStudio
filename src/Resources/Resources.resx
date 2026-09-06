@@ -897,4 +897,7 @@
   <data name="Stat_Importing" xml:space="preserve">
     <value>Importing...</value>
   </data>
+  <data name="Edit_ImageFilter" xml:space="preserve">
+    <value>Image files(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All files(*.*)|*.*</value>
+  </data>
 </root>

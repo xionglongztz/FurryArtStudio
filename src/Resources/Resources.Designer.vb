@@ -196,6 +196,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 Image files(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|All files(*.*)|*.* 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Edit_ImageFilter() As String
+            Get
+                Return ResourceManager.GetString("Edit_ImageFilter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Author: 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Edit_LblAuthor() As String

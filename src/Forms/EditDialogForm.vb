@@ -238,7 +238,7 @@ Public Class EditDialogForm
 #Region "列表编辑"
     Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles BtnAdd.Click
         Using openFileDialog As New OpenFileDialog()
-            openFileDialog.Filter = "图片文件(*.jpg;*.jpeg;*.png;*.bmp;*.gif)|*.jpg;*.jpeg;*.png;*.bmp;*.gif|所有文件(*.*)|*.*"
+            openFileDialog.Filter = My.Resources.Edit_ImageFilter
             openFileDialog.Title = "选择要添加的图片"
             openFileDialog.Multiselect = True
             If openFileDialog.ShowDialog() = DialogResult.OK Then
@@ -267,22 +267,22 @@ Public Class EditDialogForm
     End Sub
     Private Sub BtnDel_Click(sender As Object, e As EventArgs) Handles BtnDel.Click
         If LstBox.SelectedItem Is Nothing Then
-            MessageBox.Show("请先选择要删除的文件", "FurryArtStudio",
+            MessageBox.Show("请先选择要删除的文件", My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
         Dim selectedItem = CType(LstBox.SelectedItem, FileItemInfo)
         Dim result = MessageBox.Show($"确定要删除文件 '{selectedItem.FileName}' 吗？",
-                                    "确认删除", MessageBoxButtons.YesNo,
+                                    My.Resources.FurryArtStudio, MessageBoxButtons.YesNo,
                                     MessageBoxIcon.Question)
 
         If result = DialogResult.Yes Then
             If _transaction.DeleteFile(selectedItem.FileName) Then
                 RefreshFileList() '更新文件列表
-                MessageBox.Show("文件已标记为删除", "FurryArtStudio",
+                MessageBox.Show("文件已标记为删除", My.Resources.FurryArtStudio,
                               MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("删除失败,文件不存在", "FurryArtStudio",
+                MessageBox.Show("删除失败,文件不存在", My.Resources.FurryArtStudio,
                               MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
@@ -386,23 +386,23 @@ Public Class EditDialogForm
                 Dim extension = Path.GetExtension(filePaths(0))
                 '正则表达式: 匹配"xx牌yy"格式
                 '^(.*?)牌(.*)$ - 捕获"牌"前面的内容和后面的内容
-                Dim match = Regex.Match(fileName, "^(.*?)牌(.*)$")
+                'Dim match = Regex.Match(fileName, "^(.*?)牌(.*)$")
                 'TODO: 这里未来会添加一个配置项,可以允许用户自定义正则表达式
-                If match.Success Then
-                    '符合"xx牌yy"格式
-                    Dim brand As String = match.Groups(1).Value.Trim()
-                    Dim title As String = match.Groups(2).Value.Trim()
-                    extractedTitle = If(String.IsNullOrEmpty(title), fileName, title)
-                    '添加标签：如果提取到了品牌, 则添加"品牌 模板"格式的标签
-                    If Not String.IsNullOrEmpty(brand) Then
-                        extractedTags.Add($"{brand}牌")
-                        extractedTags.Add("模板")
-                    End If
-                Else
-                    '不符合规则, 直接使用文件名作为标题
-                    extractedTitle = fileName
-                    '不添加标签
-                End If
+                'If match.Success Then
+                '    '符合"xx牌yy"格式
+                '    Dim brand As String = match.Groups(1).Value.Trim()
+                '    Dim title As String = match.Groups(2).Value.Trim()
+                '    extractedTitle = If(String.IsNullOrEmpty(title), fileName, title)
+                '    '添加标签：如果提取到了品牌, 则添加"品牌 模板"格式的标签
+                '    If Not String.IsNullOrEmpty(brand) Then
+                '        extractedTags.Add($"{brand}牌")
+                '        extractedTags.Add("模板")
+                '    End If
+                'Else
+                '    '不符合规则, 直接使用文件名作为标题
+                '    extractedTitle = fileName
+                '    '不添加标签
+                'End If
             Catch ex As Exception
                 '出错时使用文件名作为标题
                 extractedTitle = Path.GetFileNameWithoutExtension(filePaths(0))
@@ -431,7 +431,7 @@ Public Class EditDialogForm
             End If
             Return True
         Catch ex As Exception
-            MessageBox.Show($"创建稿件文件夹时出错：{ex.Message}", "FurryArtStudio",
+            MessageBox.Show($"创建稿件文件夹时出错：{ex.Message}", My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End Try
@@ -462,14 +462,14 @@ Public Class EditDialogForm
         If TxtboxCharacters.Text = "" Then createTime = DateTime.Parse("1970-01-01 00:00:00")
         '验证创建时间格式
         If Not DateTime.TryParse(CleanInvisibleCharacters(TxtboxCreateTime.Text), createTime) Then
-            MessageBox.Show("创作时间格式不正确！请使用 yyyy-MM-dd HH:mm:ss 格式", "FurryArtStudio",
+            MessageBox.Show("创作时间格式不正确！请使用 yyyy-MM-dd HH:mm:ss 格式", My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return
         End If
         '验证创建时间不能晚于当前时间
         If createTime > DateTime.Now Then
-            MessageBox.Show("创作时间不能晚于当前时间！", "FurryArtStudio",
+            MessageBox.Show("创作时间不能晚于当前时间！", My.Resources.FurryArtStudio,
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return

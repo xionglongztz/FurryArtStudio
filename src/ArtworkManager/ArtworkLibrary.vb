@@ -18,6 +18,7 @@ Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Text
 Imports System.Text.Json
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar
 Imports Dapper
 ''' <summary>
 ''' 稿件库实例
@@ -230,10 +231,13 @@ Public Class ArtworkLibrary
                                 .Notes = artwork.Notes,
                                 .Characters = JsonSerializer.Serialize(If(artwork.Characters, Array.Empty(Of String)()))
                             })
+                conn.Open()
+                If artwork.Thumbnail IsNot Nothing Then
+                    UpdateThumbnail(artwork.ID, artwork.Thumbnail, conn) '存入缩略图
+                End If
             Catch ex As SqlException
                 Throw
             End Try
-
         End Using
     End Sub
 
@@ -444,6 +448,25 @@ Public Class ArtworkLibrary
             Dim imageBytes As Byte() = ms.ToArray()
 
             Using cmd As New SQLiteCommand("INSERT INTO Thumbnails (ArtworkID, ImageData) VALUES (@id, @data)", conn, trans)
+                cmd.Parameters.AddWithValue("@id", artworkId)
+                cmd.Parameters.AddWithValue("@data", imageBytes)
+                cmd.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    ''' <summary>
+    ''' 更新缩略图数据
+    ''' </summary>
+    ''' <param name="artworkId">关联的作品ID</param>
+    ''' <param name="img">新的缩略图图片</param>
+    ''' <param name="conn">数据库连接</param>
+    Private Sub UpdateThumbnail(artworkId As Integer, img As Image, conn As SQLiteConnection)
+        Using ms As New MemoryStream()
+            img.Save(ms, ImageFormat.Jpeg)
+            Dim imageBytes As Byte() = ms.ToArray()
+
+            Using cmd As New SQLiteCommand("UPDATE Thumbnails SET ImageData = @data WHERE ArtworkID = @id", conn)
                 cmd.Parameters.AddWithValue("@id", artworkId)
                 cmd.Parameters.AddWithValue("@data", imageBytes)
                 cmd.ExecuteNonQuery()

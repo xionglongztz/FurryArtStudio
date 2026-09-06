@@ -25,6 +25,8 @@ Partial Class PropertiesForm
         Me.ColorDlg = New System.Windows.Forms.ColorDialog()
         Me.TabGrp = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TxtUserName = New System.Windows.Forms.TextBox()
+        Me.LblMyname = New System.Windows.Forms.Label()
         Me.ChkShowStatus = New System.Windows.Forms.CheckBox()
         Me.ChkShowTool = New System.Windows.Forms.CheckBox()
         Me.ChkMenuUpper = New System.Windows.Forms.CheckBox()
@@ -63,8 +65,6 @@ Partial Class PropertiesForm
         Me.LblThumbMax = New System.Windows.Forms.Label()
         Me.TxtMinSize = New System.Windows.Forms.TextBox()
         Me.LblThumbMin = New System.Windows.Forms.Label()
-        Me.LblMyname = New System.Windows.Forms.Label()
-        Me.TxtUserName = New System.Windows.Forms.TextBox()
         Me.TabGrp.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -113,6 +113,22 @@ Partial Class PropertiesForm
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "外观"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TxtUserName
+        '
+        Me.TxtUserName.Location = New System.Drawing.Point(265, 267)
+        Me.TxtUserName.Name = "TxtUserName"
+        Me.TxtUserName.Size = New System.Drawing.Size(143, 25)
+        Me.TxtUserName.TabIndex = 96
+        '
+        'LblMyname
+        '
+        Me.LblMyname.AutoSize = True
+        Me.LblMyname.Location = New System.Drawing.Point(9, 270)
+        Me.LblMyname.Name = "LblMyname"
+        Me.LblMyname.Size = New System.Drawing.Size(82, 15)
+        Me.LblMyname.TabIndex = 95
+        Me.LblMyname.Text = "我的名字："
         '
         'ChkShowStatus
         '
@@ -309,7 +325,7 @@ Partial Class PropertiesForm
         'ChkShowHito
         '
         Me.ChkShowHito.AutoSize = True
-        Me.ChkShowHito.Location = New System.Drawing.Point(6, 112)
+        Me.ChkShowHito.Location = New System.Drawing.Point(8, 117)
         Me.ChkShowHito.Name = "ChkShowHito"
         Me.ChkShowHito.Size = New System.Drawing.Size(134, 19)
         Me.ChkShowHito.TabIndex = 66
@@ -319,7 +335,7 @@ Partial Class PropertiesForm
         'ChkRestore
         '
         Me.ChkRestore.AutoSize = True
-        Me.ChkRestore.Location = New System.Drawing.Point(6, 35)
+        Me.ChkRestore.Location = New System.Drawing.Point(8, 40)
         Me.ChkRestore.Name = "ChkRestore"
         Me.ChkRestore.Size = New System.Drawing.Size(194, 19)
         Me.ChkRestore.TabIndex = 65
@@ -330,7 +346,7 @@ Partial Class PropertiesForm
         '
         Me.CboCheckUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CboCheckUpdate.FormattingEnabled = True
-        Me.CboCheckUpdate.Location = New System.Drawing.Point(183, 85)
+        Me.CboCheckUpdate.Location = New System.Drawing.Point(185, 90)
         Me.CboCheckUpdate.Name = "CboCheckUpdate"
         Me.CboCheckUpdate.Size = New System.Drawing.Size(181, 23)
         Me.CboCheckUpdate.TabIndex = 64
@@ -338,7 +354,7 @@ Partial Class PropertiesForm
         'ChkAutoCheckUpdate
         '
         Me.ChkAutoCheckUpdate.AutoSize = True
-        Me.ChkAutoCheckUpdate.Location = New System.Drawing.Point(6, 87)
+        Me.ChkAutoCheckUpdate.Location = New System.Drawing.Point(8, 92)
         Me.ChkAutoCheckUpdate.Name = "ChkAutoCheckUpdate"
         Me.ChkAutoCheckUpdate.Size = New System.Drawing.Size(119, 19)
         Me.ChkAutoCheckUpdate.TabIndex = 63
@@ -348,7 +364,7 @@ Partial Class PropertiesForm
         'ChkAutoPlay
         '
         Me.ChkAutoPlay.AutoSize = True
-        Me.ChkAutoPlay.Location = New System.Drawing.Point(21, 60)
+        Me.ChkAutoPlay.Location = New System.Drawing.Point(23, 65)
         Me.ChkAutoPlay.Name = "ChkAutoPlay"
         Me.ChkAutoPlay.Size = New System.Drawing.Size(179, 19)
         Me.ChkAutoPlay.TabIndex = 62
@@ -358,7 +374,7 @@ Partial Class PropertiesForm
         'ChkAutoStart
         '
         Me.ChkAutoStart.AutoSize = True
-        Me.ChkAutoStart.Location = New System.Drawing.Point(6, 10)
+        Me.ChkAutoStart.Location = New System.Drawing.Point(8, 15)
         Me.ChkAutoStart.Name = "ChkAutoStart"
         Me.ChkAutoStart.Size = New System.Drawing.Size(254, 19)
         Me.ChkAutoStart.TabIndex = 61
@@ -487,22 +503,6 @@ Partial Class PropertiesForm
         Me.LblThumbMin.Size = New System.Drawing.Size(127, 15)
         Me.LblThumbMin.TabIndex = 89
         Me.LblThumbMin.Text = "缩略图最小尺寸："
-        '
-        'LblMyname
-        '
-        Me.LblMyname.AutoSize = True
-        Me.LblMyname.Location = New System.Drawing.Point(9, 270)
-        Me.LblMyname.Name = "LblMyname"
-        Me.LblMyname.Size = New System.Drawing.Size(82, 15)
-        Me.LblMyname.TabIndex = 95
-        Me.LblMyname.Text = "我的名字："
-        '
-        'TxtUserName
-        '
-        Me.TxtUserName.Location = New System.Drawing.Point(265, 267)
-        Me.TxtUserName.Name = "TxtUserName"
-        Me.TxtUserName.Size = New System.Drawing.Size(143, 25)
-        Me.TxtUserName.TabIndex = 96
         '
         'PropertiesForm
         '
