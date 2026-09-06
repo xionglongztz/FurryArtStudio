@@ -286,6 +286,7 @@ Public Class MainForm
         MnuProperties.Text = My.Resources.Mnu_Options
         MnuOpenPath.Text = My.Resources.Mnu_OpenFolder
         MnuCreateShortcut.Text = My.Resources.Mnu_CreateShortcut
+        MnuAddStartMenu.Text = My.Resources.Mnu_StartMenu
         MnuExit.Text = My.Resources.Mnu_Exit
         '稿件库
         MnuLibrary.Text = My.Resources.Mnu_Lib
@@ -462,6 +463,7 @@ Public Class MainForm
             (MnuProperties, "MenuSettings"),
             (MnuOpenPath, "MenuFolderOpen"),
             (MnuCreateShortcut, "MenuCreateShortcut"),
+            (MnuAddStartMenu, "MenuCreateShortcut"),
             (MnuTray, "MenuTray"),
             (MnuExit, "MenuClose"),
             (MnuLibList, "MenuFolders"),
@@ -832,9 +834,10 @@ Public Class MainForm
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub
     Private Sub MnuCreateShortcut_Click(sender As Object, e As EventArgs) Handles MnuCreateShortcut.Click
-        CreateDesktopShortcut(
+        CreateShortcut(
             targetPath:=Application.ExecutablePath,
             shortcutName:=My.Resources.FurryArtStudio,
+            destinationFolder:=Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
             workingDirectory:=Application.StartupPath,
             description:=My.Resources.FAS_Description,
             iconLocation:=$"{Application.ExecutablePath},0"
@@ -853,6 +856,17 @@ Public Class MainForm
     Private Sub NotifyIco_MouseClick(sender As Object, e As MouseEventArgs) Handles NotifyIco.MouseClick
         Show()
         NotifyIco.Visible = False
+    End Sub
+
+    Private Sub MnuAddStartMenu_Click(sender As Object, e As EventArgs) Handles MnuAddStartMenu.Click
+        CreateShortcut(
+            targetPath:=Application.ExecutablePath,
+            shortcutName:=My.Resources.FurryArtStudio,
+            destinationFolder:=Environment.GetFolderPath(Environment.SpecialFolder.StartMenu),
+            workingDirectory:=Application.StartupPath,
+            description:=My.Resources.FAS_Description,
+            iconLocation:=$"{Application.ExecutablePath},0"
+        )
     End Sub
 #End Region
 
@@ -1132,6 +1146,9 @@ Public Class MainForm
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub
     Private Sub MnuLibStatistics_Click(sender As Object, e As EventArgs) Handles MnuLibStatistics.Click
+        ShowLibStatistics()
+    End Sub
+    Private Sub ShowLibStatistics()
         Dim sb As New StringBuilder
         Dim library = _libraryManager.GetCurrentLibrary
         sb.Append(String.Format(My.Resources.Main_StrPropLib, library.LibraryName) & vbCrLf)

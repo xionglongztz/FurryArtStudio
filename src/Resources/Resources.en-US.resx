@@ -930,4 +930,10 @@
   <data name="Edit_TimeOverflow" xml:space="preserve">
     <value>The create time cannot be later than the current time.</value>
   </data>
+  <data name="Mnu_StartMenu" xml:space="preserve">
+    <value>&amp;Add to Start Menu</value>
+  </data>
+  <data name="Mnu_HideTray" xml:space="preserve">
+    <value>&amp;Minimize to Tray</value>
+  </data>
 </root>

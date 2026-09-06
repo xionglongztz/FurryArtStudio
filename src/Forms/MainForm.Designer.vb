@@ -30,7 +30,10 @@ Partial Class MainForm
         Me.MnuRunAsElevated = New System.Windows.Forms.ToolStripMenuItem()
         Me.MnuRunTerminal = New System.Windows.Forms.ToolStripMenuItem()
         Me.MnuOpenPath = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator20 = New System.Windows.Forms.ToolStripSeparator()
         Me.MnuCreateShortcut = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MnuAddStartMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator21 = New System.Windows.Forms.ToolStripSeparator()
         Me.MnuProperties = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MnuTray = New System.Windows.Forms.ToolStripMenuItem()
@@ -193,7 +196,7 @@ Partial Class MainForm
         '
         'MnuFile
         '
-        Me.MnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuDevTools, Me.MnuRunAsElevated, Me.MnuRunTerminal, Me.MnuOpenPath, Me.MnuCreateShortcut, Me.MnuProperties, Me.ToolStripSeparator1, Me.MnuTray, Me.MnuExit})
+        Me.MnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuDevTools, Me.MnuRunAsElevated, Me.MnuRunTerminal, Me.MnuOpenPath, Me.ToolStripSeparator20, Me.MnuCreateShortcut, Me.MnuAddStartMenu, Me.ToolStripSeparator21, Me.MnuProperties, Me.ToolStripSeparator1, Me.MnuTray, Me.MnuExit})
         Me.MnuFile.Name = "MnuFile"
         Me.MnuFile.Size = New System.Drawing.Size(71, 27)
         Me.MnuFile.Text = "文件(&F)"
@@ -203,7 +206,7 @@ Partial Class MainForm
         Me.MnuDevTools.Image = CType(resources.GetObject("MnuDevTools.Image"), System.Drawing.Image)
         Me.MnuDevTools.Name = "MnuDevTools"
         Me.MnuDevTools.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.MnuDevTools.Size = New System.Drawing.Size(253, 26)
+        Me.MnuDevTools.Size = New System.Drawing.Size(257, 26)
         Me.MnuDevTools.Text = "开发者工具(&D)..."
         Me.MnuDevTools.Visible = False
         '
@@ -211,57 +214,74 @@ Partial Class MainForm
         '
         Me.MnuRunAsElevated.Image = CType(resources.GetObject("MnuRunAsElevated.Image"), System.Drawing.Image)
         Me.MnuRunAsElevated.Name = "MnuRunAsElevated"
-        Me.MnuRunAsElevated.Size = New System.Drawing.Size(253, 26)
+        Me.MnuRunAsElevated.Size = New System.Drawing.Size(257, 26)
         Me.MnuRunAsElevated.Text = "以管理员权限重启(&R)"
         '
         'MnuRunTerminal
         '
         Me.MnuRunTerminal.Image = CType(resources.GetObject("MnuRunTerminal.Image"), System.Drawing.Image)
         Me.MnuRunTerminal.Name = "MnuRunTerminal"
-        Me.MnuRunTerminal.Size = New System.Drawing.Size(253, 26)
+        Me.MnuRunTerminal.Size = New System.Drawing.Size(257, 26)
         Me.MnuRunTerminal.Text = "在此处打开终端(&T)"
         '
         'MnuOpenPath
         '
         Me.MnuOpenPath.Image = CType(resources.GetObject("MnuOpenPath.Image"), System.Drawing.Image)
         Me.MnuOpenPath.Name = "MnuOpenPath"
-        Me.MnuOpenPath.Size = New System.Drawing.Size(253, 26)
+        Me.MnuOpenPath.Size = New System.Drawing.Size(257, 26)
         Me.MnuOpenPath.Text = "打开程序文件夹(&P)"
+        '
+        'ToolStripSeparator20
+        '
+        Me.ToolStripSeparator20.Name = "ToolStripSeparator20"
+        Me.ToolStripSeparator20.Size = New System.Drawing.Size(254, 6)
         '
         'MnuCreateShortcut
         '
         Me.MnuCreateShortcut.Image = CType(resources.GetObject("MnuCreateShortcut.Image"), System.Drawing.Image)
         Me.MnuCreateShortcut.Name = "MnuCreateShortcut"
-        Me.MnuCreateShortcut.Size = New System.Drawing.Size(253, 26)
+        Me.MnuCreateShortcut.Size = New System.Drawing.Size(257, 26)
         Me.MnuCreateShortcut.Text = "创建桌面快捷方式(&S)"
+        '
+        'MnuAddStartMenu
+        '
+        Me.MnuAddStartMenu.Image = CType(resources.GetObject("MnuAddStartMenu.Image"), System.Drawing.Image)
+        Me.MnuAddStartMenu.Name = "MnuAddStartMenu"
+        Me.MnuAddStartMenu.Size = New System.Drawing.Size(257, 26)
+        Me.MnuAddStartMenu.Text = "添加到""开始""菜单(&A)"
+        '
+        'ToolStripSeparator21
+        '
+        Me.ToolStripSeparator21.Name = "ToolStripSeparator21"
+        Me.ToolStripSeparator21.Size = New System.Drawing.Size(254, 6)
         '
         'MnuProperties
         '
         Me.MnuProperties.Image = CType(resources.GetObject("MnuProperties.Image"), System.Drawing.Image)
         Me.MnuProperties.Name = "MnuProperties"
         Me.MnuProperties.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.K), System.Windows.Forms.Keys)
-        Me.MnuProperties.Size = New System.Drawing.Size(253, 26)
+        Me.MnuProperties.Size = New System.Drawing.Size(257, 26)
         Me.MnuProperties.Text = "选项(&O)..."
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(250, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(254, 6)
         '
         'MnuTray
         '
         Me.MnuTray.Image = CType(resources.GetObject("MnuTray.Image"), System.Drawing.Image)
         Me.MnuTray.Name = "MnuTray"
         Me.MnuTray.ShortcutKeys = System.Windows.Forms.Keys.Insert
-        Me.MnuTray.Size = New System.Drawing.Size(253, 26)
-        Me.MnuTray.Text = "最小化到托盘(&A)"
+        Me.MnuTray.Size = New System.Drawing.Size(257, 26)
+        Me.MnuTray.Text = "最小化到托盘(&M)"
         '
         'MnuExit
         '
         Me.MnuExit.Image = CType(resources.GetObject("MnuExit.Image"), System.Drawing.Image)
         Me.MnuExit.Name = "MnuExit"
         Me.MnuExit.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.MnuExit.Size = New System.Drawing.Size(253, 26)
+        Me.MnuExit.Size = New System.Drawing.Size(257, 26)
         Me.MnuExit.Text = "退出(&X)"
         '
         'MnuLibrary
@@ -1445,4 +1465,7 @@ Partial Class MainForm
     Friend WithEvents ToolStripSeparator19 As ToolStripSeparator
     Friend WithEvents MnuTray As ToolStripMenuItem
     Friend WithEvents NotifyIco As NotifyIcon
+    Friend WithEvents MnuAddStartMenu As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator20 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator21 As ToolStripSeparator
 End Class

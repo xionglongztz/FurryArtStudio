@@ -988,6 +988,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 &amp;Minimize to Tray 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Mnu_HideTray() As String
+            Get
+                Return ResourceManager.GetString("Mnu_HideTray", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 &amp;Import... 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Mnu_Import() As String
@@ -1218,6 +1227,15 @@ Namespace My.Resources
         Friend ReadOnly Property Mnu_SelectReverse() As String
             Get
                 Return ResourceManager.GetString("Mnu_SelectReverse", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Add to Start Menu 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Mnu_StartMenu() As String
+            Get
+                Return ResourceManager.GetString("Mnu_StartMenu", resourceCulture)
             End Get
         End Property
         

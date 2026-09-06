@@ -930,4 +930,10 @@
   <data name="Edit_TimeOverflow" xml:space="preserve">
     <value>创作时间不能晚于当前时间！</value>
   </data>
+  <data name="Mnu_StartMenu" xml:space="preserve">
+    <value>添加到“开始”菜单(&amp;A)</value>
+  </data>
+  <data name="Mnu_HideTray" xml:space="preserve">
+    <value>最小化到托盘(&amp;M)</value>
+  </data>
 </root>

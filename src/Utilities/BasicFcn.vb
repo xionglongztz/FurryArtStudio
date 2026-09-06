@@ -726,18 +726,19 @@ Module BasicFcn
     ''' </summary>
     ''' <param name="targetPath">目标程序的完整路径</param>
     ''' <param name="shortcutName">快捷方式名称</param>
+    ''' <param name="destinationFolder">存放快捷方式的文件夹路径</param>
     ''' <param name="workingDirectory">(可选)工作目录</param>
     ''' <param name="description">(可选)快捷方式描述</param>
     ''' <param name="iconLocation">(可选)图标位置(格式:"路径,索引")</param>
     ''' <returns>成功返回 True，失败返回 False</returns>
-    Public Function CreateDesktopShortcut(targetPath As String,
+    Public Function CreateShortcut(targetPath As String,
                                           shortcutName As String,
+                                          destinationFolder As String,
                                           Optional workingDirectory As String = Nothing,
                                           Optional description As String = Nothing,
                                           Optional iconLocation As String = Nothing) As Boolean
         '获取桌面路径
-        Dim desktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
-        Dim shortcutPath As String = Path.Combine(desktopPath, shortcutName & ".lnk")
+        Dim shortcutPath As String = Path.Combine(destinationFolder, shortcutName & ".lnk")
         '构建 PowerShell 命令
         Dim psCommand As New StringBuilder()
         psCommand.AppendLine("$shell = New-Object -ComObject WScript.Shell")
